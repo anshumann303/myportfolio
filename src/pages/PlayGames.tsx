@@ -491,7 +491,7 @@ const PlayGames = () => {
                 className="absolute top-0 left-0 right-0 bottom-16 sm:bottom-12 bg-black"
               >
                 <iframe 
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0" 
+                  src="https://open.spotify.com/embed/playlist/3mCOEn9od5jc3suDHqhQB4?utm_source=generator&theme=0" 
                   className="w-full h-full border-none pointer-events-auto"
                   title="Spotify"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

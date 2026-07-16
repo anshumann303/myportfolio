@@ -54,31 +54,31 @@ const lightTheme = { light: ['#ebedf0','#9be9a8','#40c463','#30a14e','#216e39'],
 
 const PINNED_REPOS = [
   {
-    name: 'DSAQUESTIONS',
-    description: 'Curated collection of Data Structures and Algorithms problems with solutions in multiple languages.',
-    html_url: 'https://github.com/anshumann303/DSAQUESTIONS',
-    language: 'C++',
-    stargazers_count: 0,
-    forks_count: 0,
-    topics: ['DSA', 'C++'],
-  },
-  {
-    name: 'Topic_Wise_Java',
-    description: 'Topic-wise Java programming questions and solutions organized by concept for structured learning.',
-    html_url: 'https://github.com/anshumann303/Topic_Wise_Java',
-    language: 'Java',
-    stargazers_count: 0,
-    forks_count: 0,
-    topics: ['Java', 'DSA'],
-  },
-  {
-    name: 'Topic_Wise_Python',
-    description: 'Topic-wise Python programming questions and solutions organized by concept for structured learning.',
-    html_url: 'https://github.com/anshumann303/Topic_Wise_Python',
+    name: 'DSA-PRACTICE',
+    description: 'Data structures and algorithms practice problems and solutions.',
+    html_url: 'https://github.com/anshumann303/DSA-PRACTICE',
     language: 'Python',
-    stargazers_count: 0,
+    stargazers_count: 1,
     forks_count: 0,
     topics: ['Python', 'DSA'],
+  },
+  {
+    name: 'AI-video-assistant',
+    description: 'AI video assistant leveraging modern APIs.',
+    html_url: 'https://github.com/anshumann303/AI-video-assistant',
+    language: 'Python',
+    stargazers_count: 1,
+    forks_count: 0,
+    topics: ['Python', 'AI'],
+  },
+  {
+    name: 'chefcognito',
+    description: 'An intelligent recipe and culinary assistant application.',
+    html_url: 'https://github.com/anshumann303/chefcognito',
+    language: 'TypeScript',
+    stargazers_count: 1,
+    forks_count: 0,
+    topics: ['TypeScript', 'Fullstack'],
   },
 ];
 
@@ -109,8 +109,8 @@ export const LiveActivity = () => {
     <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 mb-24">
       <div className="rounded-2xl bg-zinc-950 border border-white/[0.06] px-5 py-6 sm:px-7 sm:py-7">
 
-        {/* ── Achievements ── */}
-        <SectionHeader title="Achievements" />
+        {/* ── Certifications & Achievements ── */}
+        <SectionHeader title="Certifications & Achievements" />
         <div className="space-y-3 mb-16">
           <a href="https://drive.google.com/drive/folders/1z3-tvjY5U1OP90Dls4IfLwV10E8e4qij?usp=sharing" target="_blank" rel="noreferrer" className="flex items-start gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group">
             <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -124,57 +124,63 @@ export const LiveActivity = () => {
               <p className="text-xs text-zinc-400 mt-0.5">Oracle Cloud Infrastructure Certification</p>
             </div>
           </a>
-          <a href="https://drive.google.com/file/d/16YkeHOFIaYoUiic2LQWVwMAHAMjkR_SN/view?usp=sharing" target="_blank" rel="noreferrer" className="flex items-start gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group">
+          <a href="#" className="flex items-start gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group">
             <div className="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
               <Trophy className="w-5 h-5 text-yellow-400" />
             </div>
             <div className="flex-1">
               <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Technex 2025 — National Hackathon Winner</p>
+                <p className="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Naukri Young Turks NAT</p>
                 <ExternalLink className="w-3.5 h-3.5 text-zinc-600 group-hover:text-yellow-400 transition-colors" />
               </div>
-              <p className="text-xs text-zinc-400 mt-0.5">Inter-college national-level hackathon</p>
+              <p className="text-xs text-zinc-400 mt-0.5">Qualified for National Aptitude Test by Naukri</p>
+            </div>
+          </a>
+          <a href="#" className="flex items-start gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group">
+            <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <Award className="w-5 h-5 text-blue-400" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium text-white group-hover:text-blue-400 transition-colors">GenAI Buildathon</p>
+                <ExternalLink className="w-3.5 h-3.5 text-zinc-600 group-hover:text-blue-400 transition-colors" />
+              </div>
+              <p className="text-xs text-zinc-400 mt-0.5">Shortlisted by OpenAI Academy & NXT Wave</p>
             </div>
           </a>
         </div>
 
-        {/* ── Certifications ── */}
-        <SectionHeader title="Certifications" />
-        <div className="space-y-3 mb-16">
-          {[
-            { color: 'blue', label: 'Data Structures and Algorithms (DSA) in C++', sub: 'Codetantra — With Lab Practicals', href: 'https://drive.google.com/file/d/12aX9JQ50mf9VfFU4D5Nq7GItDCJ3yjxf/view?usp=sharing' },
-            { color: 'orange', label: 'Java Programming', sub: 'Codetantra — With Lab Practicals', href: 'https://drive.google.com/file/d/1VghN2nvLFVZThKYlk2wJuLCuNmnAz3FX/view?usp=sharing' },
-          ].map((c, i) => (
-            <a key={i} href={c.href} target="_blank" rel="noreferrer" className={`flex items-start gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group`}>
-              <div className={`w-10 h-10 rounded-lg bg-${c.color}-500/10 border border-${c.color}-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                <BookOpen className={`w-5 h-5 text-${c.color}-400`} />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-white group-hover:text-emerald-400 transition-colors">{c.label}</p>
-                  <ExternalLink className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 transition-colors" />
-                </div>
-                <p className="text-xs text-zinc-400 mt-0.5">{c.sub}</p>
-              </div>
-            </a>
-          ))}
-        </div>
 
         {/* ── Education ── */}
         <SectionHeader title="Education" />
-        <a href="https://sipnaengg.ac.in/" target="_blank" rel="noreferrer" className="block p-5 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all mb-16 group">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-            <div>
-              <div className="flex items-center gap-2">
-                <p className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">Sipna College of Engineering &amp; Technology</p>
-                <ExternalLink className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 transition-colors" />
+        <div className="space-y-4 mb-16">
+          <a href="https://sipnaengg.ac.in/" target="_blank" rel="noreferrer" className="block p-5 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+              <div>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">Sipna College of Engineering &amp; Technology</p>
+                  <ExternalLink className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 transition-colors" />
+                </div>
+                <p className="text-xs text-zinc-400 mt-1">B.E. in Information Technology · SGPA: <span className="text-emerald-400 font-medium group-hover:text-emerald-300">6.8</span></p>
+                <p className="text-xs text-zinc-500 mt-0.5">Amravati, India</p>
               </div>
-              <p className="text-xs text-zinc-400 mt-1">B.E. in Information Technology · CGPA: <span className="text-emerald-400 font-medium group-hover:text-emerald-300">8.3/10</span></p>
-              <p className="text-xs text-zinc-500 mt-0.5">Amravati, India</p>
+              <span className="text-[11px] text-zinc-400 font-mono tracking-wider flex-shrink-0 mt-1 sm:mt-0">2024 – 2027</span>
             </div>
-            <span className="text-[11px] text-zinc-400 font-mono tracking-wider flex-shrink-0 mt-1 sm:mt-0">2021 – 2025</span>
+          </a>
+          <div className="block p-5 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-700/50 transition-all group">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+              <div>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">Government Polytechnic</p>
+                  <ExternalLink className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 transition-colors" />
+                </div>
+                <p className="text-xs text-zinc-400 mt-1">Diploma in E&TC Engineering · Percentage: <span className="text-emerald-400 font-medium group-hover:text-emerald-300">82.32%</span></p>
+                <p className="text-xs text-zinc-500 mt-0.5">Amravati, India</p>
+              </div>
+              <span className="text-[11px] text-zinc-400 font-mono tracking-wider flex-shrink-0 mt-1 sm:mt-0">2021 – 2024</span>
+            </div>
           </div>
-        </a>
+        </div>
 
         {/* ── GitHub Live Dashboard ── */}
         <SectionHeader title="Live GitHub Activity" />

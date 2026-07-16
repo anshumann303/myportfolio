@@ -21,7 +21,8 @@ const COMMANDS: Record<string, () => string[]> = {
   ],
   whoami: () => [
     "Anshuman Lawankar",
-    "├── Final-year B.E. IT @ Sipna College of Engineering, Amravati (2021-2025)",
+    "├── B.E. in Information Technology @ Sipna College of Engineering & Technology (2024-2027) | SGPA: 6.8",
+    "├── Diploma in E&TC Engineering @ Government Polytechnic, Amravati (2021-2024) | 82.32%",
     "├── Oracle Generative AI Professional",
     "└── Technex 2025 — National Hackathon Winner",
   ],
@@ -46,7 +47,7 @@ const COMMANDS: Record<string, () => string[]> = {
     "Contact Information:",
     "  Email    : lawankaranshuman@gmail.com",
     "  Phone    : +91-9156346303",
-    "  LinkedIn : linkedin.com/in/anshuman-lawankar",
+    "  LinkedIn : www.linkedin.com/in/anshuman-lawankar-1ba702339/",
     "  GitHub   : github.com/anshumann303",
     "  Location : Amravati, Maharashtra, India",
     "",

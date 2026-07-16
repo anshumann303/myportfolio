@@ -1,12 +1,12 @@
 import React from 'react';
 import SectionHeader from './SectionHeader';
 import { 
-  SiJavascript, SiTypescript, SiPython, SiCplusplus, SiC,
+  SiJavascript, SiTypescript, SiPython,
   SiReact, SiNodedotjs, SiExpress, SiMongodb,
   SiDocker, SiKubernetes, SiGit, SiGithubactions, SiGooglecloud,
   SiVercel, SiPostman, SiSupabase, SiCss, SiHtml5
 } from 'react-icons/si';
-import { FaJava, FaDatabase } from 'react-icons/fa';
+import { FaDatabase } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
 
 const row1 = [
@@ -15,11 +15,7 @@ const row1 = [
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "Java", icon: FaJava, color: "#007396" },
-  { name: "C++", icon: SiCplusplus, color: "#00599C" },
-  { name: "C", icon: SiC, color: "#A8B9CC" },
   { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "React Native", icon: SiReact, color: "#61DAFB" },
   { name: "SQL", icon: FaDatabase, color: "#336791" },
 ];
 

@@ -52,8 +52,8 @@ const contactItems: ContactItem[] = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/anshuman-lawankar",
-    href: "https://linkedin.com/in/anshuman-lawankar",
+    value: "linkedin.com/in/anshuman-lawankar-1ba702339",
+    href: "https://www.linkedin.com/in/anshuman-lawankar-1ba702339/",
     copyable: false,
     color: "#404040",
     glow: "rgba(0,0,0,0.05)",

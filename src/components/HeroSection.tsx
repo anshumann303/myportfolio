@@ -119,7 +119,7 @@ const HeroSection = () => {
               <a href="#projects">View Projects</a>
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto border-border hover:bg-secondary" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <FileText className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>
@@ -176,9 +176,9 @@ const HeroSection = () => {
               className="relative w-[256px] h-[256px] rounded-full overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(16,185,129,0.3)] z-10"
             >
               <img
-                src="/photo/1000170373_optimized_1000.jpg.jpeg"
+                src="/photo/anshuman.jpg"
                 alt="Anshuman Lawankar"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover scale-[1.6] object-[center_25%]"
               />
               {/* Subtle overlay sheen */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" />

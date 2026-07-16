@@ -38,7 +38,7 @@ const AboutSection = () => {
             className="space-y-6 text-muted-foreground leading-relaxed text-lg"
           >
             <p>
-              I am <strong className="text-foreground">Anshuman Lawankar</strong>, a final-year B.Tech IT student at Sipna COET Amravati (2021–2025) with a strong passion for building impactful software systems, AI-powered platforms, and scalable digital products.
+              I am <strong className="text-foreground">Anshuman Lawankar</strong>, a B.E. IT student at Sipna COET Amravati (2024–2027) with a strong passion for building impactful software systems, AI-powered platforms, and scalable digital products.
             </p>
             <p>
               My expertise spans across full-stack development, intelligent systems, MERN stack engineering, AI/ML, and real-world problem-solving. I enjoy transforming complex ideas into practical and scalable software solutions.

@@ -17,7 +17,7 @@ const appIcons = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/anshumann303", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/anshuman-lawankar", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/anshuman-lawankar-1ba702339/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:lawankaranshuman@gmail.com", label: "Email" },
   { icon: Phone, href: "tel:+919156346303", label: "Phone" },
 ];

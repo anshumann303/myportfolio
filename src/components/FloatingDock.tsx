@@ -5,8 +5,10 @@ interface DockItem {
   icon: React.ReactNode;
   label: string;
   action: () => void;
-  type: 'scroll' | 'link' | 'email';
+  type?: 'scroll' | 'link' | 'email';
   href?: string;
+  id?: string;
+  external?: boolean;
 }
 
 const FloatingDock = () => {
@@ -48,9 +50,9 @@ const FloatingDock = () => {
       id: 'linkedin',
       icon: <Linkedin size={20} />,
       label: 'LinkedIn',
-      action: () => window.open('https://linkedin.com/in/anshuman-lawankar', '_blank'),
+      action: () => window.open('https://www.linkedin.com/in/anshuman-lawankar-1ba702339/', '_blank'),
       external: true,
-      href: 'https://linkedin.com/in/anshuman-lawankar',
+      href: 'https://www.linkedin.com/in/anshuman-lawankar-1ba702339/',
     },
     {
       id: 'email',

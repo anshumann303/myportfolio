@@ -32,9 +32,9 @@ const CommandPalette = () => {
 
     { id: "nav-contact", label: "Go to Contact", description: "Get in touch", icon: ChevronRight, action: () => scrollTo("contact"), category: "Navigation" },
     { id: "link-github", label: "Open GitHub", description: "github.com/anshumann303", icon: Github, action: () => { window.open("https://github.com/anshumann303", "_blank"); setOpen(false); }, category: "Links" },
-    { id: "link-linkedin", label: "Open LinkedIn", description: "linkedin.com/in/anshuman-lawankar", icon: Linkedin, action: () => { window.open("https://linkedin.com/in/anshuman-lawankar", "_blank"); setOpen(false); }, category: "Links" },
+    { id: "link-linkedin", label: "Open LinkedIn", description: "linkedin.com/in/anshuman-lawankar-1ba702339", icon: Linkedin, action: () => { window.open("https://www.linkedin.com/in/anshuman-lawankar-1ba702339/", "_blank"); setOpen(false); }, category: "Links" },
     { id: "link-email", label: "Send Email", description: "lawankaranshuman@gmail.com", icon: Mail, action: () => { window.open("mailto:lawankaranshuman@gmail.com"); setOpen(false); }, category: "Links" },
-    { id: "link-resume", label: "Download Resume", description: "Get Anshuman's resume", icon: FileText, action: () => { window.open("https://drive.google.com/drive/folders/1z3-tvjY5U1OP90Dls4IfLwV10E8e4qij?usp=sharing", "_blank"); setOpen(false); }, category: "Links" },
+    { id: "link-resume", label: "Download Resume", description: "Get Anshuman's resume", icon: FileText, action: () => { window.open("https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing", "_blank"); setOpen(false); }, category: "Links" },
     { id: "link-leetcode", label: "Open LeetCode", description: "leetcode.com/lawankaranshuman", icon: Code2, action: () => { window.open("https://leetcode.com/lawankaranshuman", "_blank"); setOpen(false); }, category: "Links" },
   ];
 

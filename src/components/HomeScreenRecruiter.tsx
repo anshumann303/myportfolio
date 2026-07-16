@@ -36,7 +36,7 @@ const AnimatedCounter = ({ value, isFloat }: { value: number; isFloat: boolean }
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/anshumann303", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/anshuman-lawankar", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/anshuman-lawankar-1ba702339/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:lawankaranshuman@gmail.com", label: "Email" },
   { icon: Phone, href: "tel:+919156346303", label: "Phone" },
 ];
@@ -78,7 +78,7 @@ const HomeScreen = ({ onNavigate }: HomeScreenProps) => {
 
             {/* Bio */}
             <p className="text-xs text-zinc-600 leading-relaxed mb-4">
-              MERN + Next.js developer. AI integration specialist. Building scalable & production-ready web apps. Sipna COET '25.
+              MERN + Next.js developer. AI integration specialist. Building scalable & production-ready web apps. Sipna COET '27.
             </p>
 
             {/* Social row */}
@@ -222,7 +222,7 @@ const HomeScreen = ({ onNavigate }: HomeScreenProps) => {
             <div className="relative pl-3 border-l-2 border-teal-200">
               <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-teal-400 ring-2 ring-white" />
               <p className="text-xs text-zinc-800 leading-relaxed">
-                <span className="font-semibold text-zinc-900">Technex Hackathon 2K25 Winner</span> building an AI-powered resume analyzer with Gemini API.
+                <span className="font-semibold text-zinc-900">Qualified for Naukri Young Turks Aptitude Test</span> selected through competitive screening.
               </p>
             </div>
           </div>

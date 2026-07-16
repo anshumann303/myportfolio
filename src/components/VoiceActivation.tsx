@@ -11,7 +11,7 @@ const VOICE_COMMANDS: Record<string, { action: () => void; response: string }> =
 
   contact: { action: () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), response: "Opening Contact section..." },
   github: { action: () => document.getElementById("github")?.scrollIntoView({ behavior: "smooth" }), response: "Opening GitHub Dashboard..." },
-  "download resume": { action: () => window.open("/resume.pdf", "_blank"), response: "Downloading resume..." },
+  "download resume": { action: () => window.open("https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing", "_blank"), response: "Downloading resume..." },
   top: { action: () => window.scrollTo({ top: 0, behavior: "smooth" }), response: "Back to top!" },
 };
 

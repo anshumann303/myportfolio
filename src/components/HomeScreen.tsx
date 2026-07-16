@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import profilePhoto from '../photo/1000170373_optimized_1000.jpg.jpeg';
+const profilePhoto = '/photo/anshuman.jpg';
 import SkillsMarquee from './SkillsMarquee';
 import { Github, Twitter, Linkedin, Mail, ArrowUpRight, X, Gamepad2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -11,13 +11,12 @@ export const HomeScreen = () => {
 
   // Initialize Spotify IFrame API for programmatic control
   useEffect(() => {
-    // Define the global callback
-    (window as any).onSpotifyIframeApiReady = (IFrameAPI: any) => {
+    const initSpotify = (IFrameAPI: any) => {
       const element = spotifyContainerRef.current;
       if (!element) return;
 
       const options = {
-        uri: 'spotify:track:5y2ijHECwFYWqcAHKTZgzD',
+        uri: 'spotify:track:0mEdbdeRFQwBhN4xfyIeUM',
         width: '100%',
         height: '152',
         theme: '0'
@@ -28,17 +27,29 @@ export const HomeScreen = () => {
       });
     };
 
-    // Inject the Spotify script if it doesn't exist
-    if (!document.querySelector('script[src="https://open.spotify.com/embed/iframe-api/v1"]')) {
-      const script = document.createElement('script');
-      script.src = "https://open.spotify.com/embed/iframe-api/v1";
-      script.async = true;
-      document.body.appendChild(script);
+    if ((window as any).Spotify && (window as any).Spotify.IframeApi) {
+      // Script already loaded and API ready
+      initSpotify((window as any).Spotify.IframeApi);
+    } else {
+      // Define the global callback
+      (window as any).onSpotifyIframeApiReady = initSpotify;
+
+      // Inject the Spotify script if it doesn't exist
+      if (!document.querySelector('script[src="https://open.spotify.com/embed/iframe-api/v1"]')) {
+        const script = document.createElement('script');
+        script.src = "https://open.spotify.com/embed/iframe-api/v1";
+        script.async = true;
+        document.body.appendChild(script);
+      }
     }
 
     // Cleanup
     return () => {
-      (window as any).onSpotifyIframeApiReady = null;
+      // Note: we can't easily clean up the Spotify iframe itself here 
+      // without potentially breaking other things, but React will remove the DOM node.
+      if ((window as any).onSpotifyIframeApiReady === initSpotify) {
+        (window as any).onSpotifyIframeApiReady = null;
+      }
     };
   }, []);
 
@@ -70,31 +81,31 @@ export const HomeScreen = () => {
 
   return (
     <div className="relative z-10 w-full max-w-3xl mx-auto flex flex-col px-4 sm:px-6">
-      
+
       {/* Hero Banner + Profile Picture wrapper */}
       <div className="relative w-full mb-12 sm:mb-14">
         {/* Banner */}
         <div className="relative w-full h-32 sm:h-48 rounded-2xl overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=3540&auto=format&fit=crop" 
-            alt="Banner" 
+          <img
+            src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=3540&auto=format&fit=crop"
+            alt="Banner"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
           {/* Buttons */}
           <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2">
-            <Link 
+            <Link
               to="/playgames"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-500 text-black hover:bg-emerald-400 active:scale-95 transition-all shadow-md shadow-emerald-500/20 backdrop-blur-md"
             >
               <Gamepad2 className="w-3.5 h-3.5" />
               Arcade
             </Link>
-            <a 
-              href="https://drive.google.com/drive/folders/1z3-tvjY5U1OP90Dls4IfLwV10E8e4qij?usp=sharing"
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-black hover:bg-zinc-100 active:scale-95 transition-all border border-white/20 shadow-md backdrop-blur-md"
             >
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -173,47 +184,47 @@ export const HomeScreen = () => {
       {/* Profile Info — frosted glass panel for readability over the animated background */}
       <div className="relative rounded-2xl bg-zinc-950 border border-white/[0.06] px-5 py-6 sm:px-7 sm:py-7 space-y-6">
         <div className="space-y-1.5">
-          <h1 
+          <h1
             className="font-bold text-2xl sm:text-3xl tracking-tight text-white"
             style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           >
             Anshuman Lawankar
           </h1>
-          
+
           {/* Social Icons */}
           <div className="flex items-center gap-4 text-zinc-400 pt-1">
-            <a 
-              href="https://x.com/anshumann303" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://x.com/anshumann303"
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-white transition-colors"
               aria-label="Twitter / X"
               title="Twitter / X"
             >
               <Twitter className="w-4 h-4" />
             </a>
-            <a 
-              href="https://github.com/anshumann303" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://github.com/anshumann303"
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-white transition-colors"
               aria-label="GitHub"
               title="GitHub"
             >
               <Github className="w-4 h-4" />
             </a>
-            <a 
-              href="https://linkedin.com/in/anshuman-lawankar" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://www.linkedin.com/in/anshuman-lawankar-1ba702339/"
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-white transition-colors"
               aria-label="LinkedIn"
               title="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
             </a>
-            <a 
-              href="mailto:lawankaranshuman@gmail.com" 
+            <a
+              href="mailto:lawankaranshuman@gmail.com"
               className="hover:text-white transition-colors"
               aria-label="Email"
               title="lawankaranshuman@gmail.com"
@@ -221,7 +232,7 @@ export const HomeScreen = () => {
               <Mail className="w-4 h-4" />
             </a>
           </div>
-          
+
           <div className="flex items-center gap-3 pt-2">
             <span className="font-serif italic text-lg text-zinc-500 select-none">anshumanlawankar</span>
             <div className="h-[1px] bg-zinc-800 w-32"></div>
@@ -231,7 +242,7 @@ export const HomeScreen = () => {
         {/* Bio */}
         <div className="text-sm sm:text-base text-zinc-400 leading-relaxed space-y-4 max-w-2xl">
           <p>
-            B.Tech IT student at <span className="text-white font-semibold">Sipna COET, Amravati</span> specializing in the{' '}
+            B.E. IT student at <span className="text-white font-semibold">Sipna COET, Amravati</span> specializing in the{' '}
             <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium mx-0.5">MERN</span>{' '}
             stack and{' '}
             <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium mx-0.5">Next.js</span>,
@@ -245,7 +256,7 @@ export const HomeScreen = () => {
           </p>
           <p>
             When I learn something worth sharing, I{' '}
-            <button 
+            <button
               onClick={() => scrollToSection('projects')}
               className="text-white font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-white transition-colors"
             >
@@ -266,28 +277,28 @@ export const HomeScreen = () => {
 
           {/* Key Stats */}
           <div className="grid grid-cols-2 gap-4 pt-2 max-w-xs">
-            <button 
+            <button
               onClick={() => scrollToSection('projects')}
               className="flex flex-col text-left hover:opacity-80 transition-opacity group"
             >
-              <span className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">40+</span>
-              <span className="text-[10px] text-zinc-500 leading-tight">REST APIs built</span>
+              <span className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">4+</span>
+              <span className="text-[10px] text-zinc-500 leading-tight">Projects Built</span>
             </button>
 
-            <a 
+            <a
               href="https://github.com/anshumann303"
               target="_blank"
               rel="noreferrer"
               className="flex flex-col text-left hover:opacity-80 transition-opacity group"
             >
               <span className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">3+</span>
-              <span className="text-[10px] text-zinc-500 leading-tight">Hackathons Won</span>
+              <span className="text-[10px] text-zinc-500 leading-tight">Contest Participant</span>
             </a>
           </div>
-          
+
           <div className="space-y-3 pt-4 border-t border-white/[0.06]">
             <h3 className="text-xs font-medium text-zinc-500">Key <span className="text-white">Highlights</span></h3>
-            
+
             <div className="space-y-4">
               <div className="group relative border-l-2 border-emerald-500/30 pl-4 py-1 hover:border-emerald-500 transition-colors">
                 <p className="text-sm text-zinc-300 leading-relaxed">
@@ -297,7 +308,7 @@ export const HomeScreen = () => {
 
               <div className="group relative border-l-2 border-teal-500/30 pl-4 py-1 hover:border-teal-500 transition-colors">
                 <p className="text-sm text-zinc-300 leading-relaxed">
-                  <span className="text-white font-semibold">Technex Hackathon 2K25 Winner</span> building an AI-powered resume analyzer with Gemini API.
+                  <span className="text-white font-semibold">Qualified for Naukri Young Turks Aptitude Test</span> selected through competitive screening.
                 </p>
               </div>
             </div>

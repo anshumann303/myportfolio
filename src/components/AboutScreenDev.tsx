@@ -7,7 +7,7 @@ const achievements = [
     title: "Oracle Generative AI Professional",
     date: "Feb 2024",
     org: "Oracle Cloud Infrastructure",
-    sub: "Suryodaya College — IEEE Published",
+    sub: "Oracle Cloud Infrastructure Certification",
     color: "#171717",
     bg: "rgba(0,0,0,0.03)",
     border: "rgba(0,0,0,0.06)",
@@ -18,7 +18,7 @@ const achievements = [
     icon: Trophy,
     title: "Technex 2025 — National Hackathon 3rd Prize",
     org: "Inter-college national-level hackathon",
-    sub: "Nagpur, India",
+    sub: "Amravati, India",
     color: "#171717",
     bg: "rgba(0,0,0,0.03)",
     border: "rgba(0,0,0,0.06)",
@@ -80,9 +80,12 @@ const AboutScreen = () => {
             {/* Education */}
             <div>
               <span className="text-[#58A6FF] font-bold">## Education</span><br/>
-              <span className="text-[#3FB950]">- B.Tech in Information Technology</span><br/>
-              <a href="https://www.stvincentngp.edu.in/" target="_blank" rel="noreferrer" className="text-[#8B949E] hover:text-[#58A6FF] hover:underline cursor-pointer transition-colors whitespace-pre">  SVPCET, Nagpur (2023 – 2027)</a><br/>
-              <span className="text-[#D2A8FF]">  CGPA: 8.3 / 10</span>
+              <span className="text-[#3FB950]">- B.E. in Information Technology</span><br/>
+              <a href="https://sipnaengg.ac.in/" target="_blank" rel="noreferrer" className="text-[#8B949E] hover:text-[#58A6FF] hover:underline cursor-pointer transition-colors whitespace-pre">  Sipna College of Engineering & Technology, Amravati (2024 – 2027)</a><br/>
+              <span className="text-[#D2A8FF]">  SGPA: 6.8</span><br/><br/>
+              <span className="text-[#3FB950]">- Diploma in Electronics & Telecommunication</span><br/>
+              <span className="text-[#8B949E] whitespace-pre">  Government Polytechnic, Amravati (2021 – 2024)</span><br/>
+              <span className="text-[#D2A8FF]">  Percentage: 82.32%</span>
             </div>
 
             {/* Achievements */}

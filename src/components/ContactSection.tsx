@@ -7,7 +7,7 @@ import { useToast } from "../hooks/use-toast";
 
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/anshumann303" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/anshuman-lawankar" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/anshuman-lawankar-1ba702339/" },
   { icon: Mail, label: "Email", href: "mailto:lawankaranshuman@gmail.com" },
 ];
 
