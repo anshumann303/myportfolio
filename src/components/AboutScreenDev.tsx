@@ -65,36 +65,36 @@ const AboutScreen = () => {
           </div>
 
           <div className="p-4 bg-[#161B22] space-y-5 text-[#C9D1D9] leading-relaxed">
-            
+
             {/* Header */}
             <div>
-              <span className="text-[#58A6FF] font-bold"># Anshuman Lawankar</span><br/>
+              <span className="text-[#58A6FF] font-bold"># Anshuman Lawankar</span><br />
               <span className="text-[#8B949E] italic">Full Stack Developer · AI Builder</span>
             </div>
 
             {/* Bio */}
             <div>
-              Full Stack Developer specializing in the MERN stack and React Native, building scalable web and mobile applications, AI-powered solutions, and 40+ REST APIs. Experienced in AI/ML, edge computing, and modern software engineering.
+              Full Stack Developer specializing in the MERN stack and AI Integration, building scalable web applications, AI-powered solutions. Experienced in AI/ML and modern software engineering.
             </div>
 
             {/* Education */}
             <div>
-              <span className="text-[#58A6FF] font-bold">## Education</span><br/>
-              <span className="text-[#3FB950]">- B.E. in Information Technology</span><br/>
-              <a href="https://sipnaengg.ac.in/" target="_blank" rel="noreferrer" className="text-[#8B949E] hover:text-[#58A6FF] hover:underline cursor-pointer transition-colors whitespace-pre">  Sipna College of Engineering & Technology, Amravati (2024 – 2027)</a><br/>
-              <span className="text-[#D2A8FF]">  SGPA: 6.8</span><br/><br/>
-              <span className="text-[#3FB950]">- Diploma in Electronics & Telecommunication</span><br/>
-              <span className="text-[#8B949E] whitespace-pre">  Government Polytechnic, Amravati (2021 – 2024)</span><br/>
+              <span className="text-[#58A6FF] font-bold">## Education</span><br />
+              <span className="text-[#3FB950]">- B.E. in Information Technology</span><br />
+              <a href="https://sipnaengg.ac.in/" target="_blank" rel="noreferrer" className="text-[#8B949E] hover:text-[#58A6FF] hover:underline cursor-pointer transition-colors whitespace-pre">  Sipna College of Engineering & Technology, Amravati (2024 – 2027)</a><br />
+              <span className="text-[#D2A8FF]">  SGPA: 6.8</span><br /><br />
+              <span className="text-[#3FB950]">- Diploma in Electronics & Telecommunication</span><br />
+              <span className="text-[#8B949E] whitespace-pre">  Government Polytechnic, Amravati (2021 – 2024)</span><br />
               <span className="text-[#D2A8FF]">  Percentage: 82.32%</span>
             </div>
 
             {/* Achievements */}
             <div>
-              <span className="text-[#58A6FF] font-bold">## Achievements</span><br/>
+              <span className="text-[#58A6FF] font-bold">## Achievements</span><br />
               {achievements.map((a, i) => (
                 <div key={i} className="mb-2">
-                  <span className="text-[#3FB950]">- {a.title}</span><br/>
-                  <span className="text-[#8B949E]">  {a.org}</span><br/>
+                  <span className="text-[#3FB950]">- {a.title}</span><br />
+                  <span className="text-[#8B949E]">  {a.org}</span><br />
                   {a.link ? (
                     <a href={a.link} target="_blank" rel="noreferrer" className="text-[#8B949E] hover:text-[#58A6FF] hover:underline cursor-pointer transition-colors whitespace-pre">  {a.sub}</a>
                   ) : (
@@ -106,7 +106,7 @@ const AboutScreen = () => {
 
             {/* Focus Areas */}
             <div>
-              <span className="text-[#58A6FF] font-bold">## Focus Areas</span><br/>
+              <span className="text-[#58A6FF] font-bold">## Focus Areas</span><br />
               <div className="flex flex-wrap gap-1 mt-1">
                 {focusAreas.map((area, i) => (
                   <span key={i} className="text-[#C9D1D9] bg-[#0D1117] border border-[#30363D] px-1.5 py-0.5 rounded">

@@ -78,7 +78,7 @@ const HomeScreen = ({ onNavigate }: HomeScreenProps) => {
 
             {/* Bio */}
             <p className="text-xs text-zinc-600 leading-relaxed mb-4">
-              MERN + Next.js developer. AI integration specialist. Building scalable & production-ready web apps. Sipna COET '27.
+              MERN + AI developer. AI integration specialist. Building scalable & production-ready web apps. Sipna COET '27.
             </p>
 
             {/* Social row */}

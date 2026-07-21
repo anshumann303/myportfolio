@@ -17,7 +17,7 @@ const appIcons = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/anshumann303", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/anshuman-lawankar-1ba702339/", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://linkedin.com/in/anshuman-lawankar", label: "LinkedIn" },
   { icon: Mail, href: "mailto:lawankaranshuman@gmail.com", label: "Email" },
   { icon: Phone, href: "tel:+919156346303", label: "Phone" },
 ];
@@ -47,7 +47,7 @@ const HomeScreen = ({ onNavigate }: HomeScreenProps) => {
             <span className="text-[#58A6FF]">~</span>
             <span className="text-[#C9D1D9] ml-2">$ cat role.txt</span>
           </div>
-          <div className="text-[#C9D1D9] pl-4">Full Stack Developer — MERN + Next.js</div>
+          <div className="text-[#C9D1D9] pl-4">Full Stack Developer — MERN + AI</div>
 
           <div>
             <span className="text-[#3FB950] mr-2">➜</span>
@@ -71,22 +71,22 @@ const HomeScreen = ({ onNavigate }: HomeScreenProps) => {
           <div className="text-[#8B949E]">{'// profile.json'}</div>
           <div><span className="text-[#C9D1D9]">{'{'}</span></div>
           <div className="pl-4">
-            <span className="text-[#58A6FF]">"apis_built"</span>
+            <span className="text-[#58A6FF]">"Projects"</span>
             <span className="text-[#C9D1D9]">: </span>
-            <span className="text-[#3FB950]">"40+"</span>
+            <span className="text-[#3FB950]">"3+"</span>
             <span className="text-[#C9D1D9]">,</span>
           </div>
 
           <div className="pl-4">
-            <span className="text-[#58A6FF]">"hackathons_won"</span>
+            <span className="text-[#58A6FF]">"Certified Oracle GenAI Professional"</span>
             <span className="text-[#C9D1D9]">: </span>
             <span className="text-[#D2A8FF]">3</span>
             <span className="text-[#C9D1D9]">,</span>
           </div>
           <div className="pl-4">
-            <span className="text-[#58A6FF]">"cgpa"</span>
+            <span className="text-[#58A6FF]">"sgpa"</span>
             <span className="text-[#C9D1D9]">: </span>
-            <span className="text-[#D2A8FF]">8.3</span>
+            <span className="text-[#D2A8FF]">6.8</span>
           </div>
           <div><span className="text-[#C9D1D9]">{'}'}</span></div>
         </motion.div>

@@ -16,9 +16,9 @@ const achievements = [
   },
   {
     icon: Trophy,
-    title: "3rd Prize — Hackathon",
-    org: "Technex 2025 National Hackathon",
-    sub: "Inter-college national level competition",
+    title: "Qualified for Naukri Young Turks National Aptitude Test",
+    org: "Naukri.com",
+    sub: "Naukri Young Turks National Aptitude Test",
     color: "#404040",
     bg: "rgba(0,0,0,0.03)",
     border: "rgba(0,0,0,0.06)",
@@ -30,9 +30,7 @@ const achievements = [
 const focusAreas = [
   "Full Stack Development",
   "MERN Stack",
-  "React Native",
   "AI/ML Systems",
-  "Edge Computing",
   "API Development",
   "Scalable Backends",
   "REST API Design",
@@ -72,7 +70,7 @@ const AboutScreen = () => {
               </div>
             </div>
             <p className="text-xs text-zinc-600 leading-relaxed">
-              Full Stack Developer specializing in the MERN stack and React Native, building scalable web and mobile applications, AI-powered solutions, and 40+ REST APIs. Experienced in AI/ML, edge computing, and modern software engineering.
+              Full Stack Developer specializing in the MERN stack, building scalable web application, AI-powered solutions, and REST APIs. Experienced in AI/ML and modern software engineering.
             </p>
           </div>
         </motion.div>
@@ -87,76 +85,41 @@ const AboutScreen = () => {
           <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
             <GraduationCap size={11} /> Education
           </h3>
-          <div className="space-y-3">
-            <a
-              href="https://sipnaengg.ac.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="block p-4 rounded-[12px] hover:bg-gradient-to-r hover:from-black/5 hover:to-black/10 transition-all group cursor-pointer"
-              style={{
-                backgroundColor: "rgba(0,0,0,0.02)",
-                border: "1px solid rgba(0,0,0,0.05)",
-              }}
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center text-base flex-shrink-0">
-                  🎓
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-xs font-bold text-zinc-900 leading-tight group-hover:text-blue-600 transition-colors">
-                    B.E. in Information Technology
-                  </h4>
-                  <p className="text-[11px] font-semibold text-zinc-600 mt-0.5 group-hover:text-zinc-800 transition-colors">Sipna College of Engineering & Technology, Amravati</p>
-                  <div className="flex items-center justify-between mt-1.5">
-                    <span className="text-[10px] text-zinc-500">2024 – 2027</span>
-                    <span
-                      className="text-[11px] font-bold px-2 py-0.5 rounded-lg"
-                      style={{
-                        background: "rgba(0,0,0,0.05)",
-                        color: "#171717",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      SGPA: 6.8
-                    </span>
-                  </div>
-                </div>
+          <a
+            href="https://www.stvincentngp.edu.in/"
+            target="_blank"
+            rel="noreferrer"
+            className="block p-4 rounded-[12px] hover:bg-gradient-to-r hover:from-black/5 hover:to-black/10 transition-all group cursor-pointer"
+            style={{
+              backgroundColor: "rgba(0,0,0,0.02)",
+              border: "1px solid rgba(0,0,0,0.05)",
+            }}
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center text-base flex-shrink-0">
+                🎓
               </div>
-            </a>
-            
-            <div
-              className="block p-4 rounded-[12px] hover:bg-gradient-to-r hover:from-black/5 hover:to-black/10 transition-all group cursor-pointer"
-              style={{
-                backgroundColor: "rgba(0,0,0,0.02)",
-                border: "1px solid rgba(0,0,0,0.05)",
-              }}
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center text-base flex-shrink-0">
-                  📜
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-xs font-bold text-zinc-900 leading-tight group-hover:text-blue-600 transition-colors">
-                    Diploma in Electronics & Telecommunication
-                  </h4>
-                  <p className="text-[11px] font-semibold text-zinc-600 mt-0.5 group-hover:text-zinc-800 transition-colors">Government Polytechnic, Amravati</p>
-                  <div className="flex items-center justify-between mt-1.5">
-                    <span className="text-[10px] text-zinc-500">2021 – 2024</span>
-                    <span
-                      className="text-[11px] font-bold px-2 py-0.5 rounded-lg"
-                      style={{
-                        background: "rgba(0,0,0,0.05)",
-                        color: "#171717",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      Percentage: 82.32%
-                    </span>
-                  </div>
+              <div className="flex-1">
+                <h4 className="text-xs font-bold text-zinc-900 leading-tight group-hover:text-blue-600 transition-colors">
+                  B.Tech in Information Technology
+                </h4>
+                <p className="text-[11px] font-semibold text-zinc-600 mt-0.5 group-hover:text-zinc-800 transition-colors">SCOET, Amravati</p>
+                <div className="flex items-center justify-between mt-1.5">
+                  <span className="text-[10px] text-zinc-500">2024 – 2027</span>
+                  <span
+                    className="text-[11px] font-bold px-2 py-0.5 rounded-lg"
+                    style={{
+                      background: "rgba(0,0,0,0.05)",
+                      color: "#171717",
+                      border: "1px solid rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    CGPA: 6.8 / 10
+                  </span>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </motion.div>
 
         {/* Achievements */}

@@ -41,7 +41,7 @@ const AboutSection = () => {
               I am <strong className="text-foreground">Anshuman Lawankar</strong>, a B.E. IT student at Sipna COET Amravati (2024–2027) with a strong passion for building impactful software systems, AI-powered platforms, and scalable digital products.
             </p>
             <p>
-              My expertise spans across full-stack development, intelligent systems, MERN stack engineering, AI/ML, and real-world problem-solving. I enjoy transforming complex ideas into practical and scalable software solutions.
+              My expertise spans across full-stack development, AI Integration, MERN stack and real-world problem-solving. I enjoy transforming complex ideas into practical and scalable software solutions.
             </p>
             <p>
               I actively contribute to technical communities, hackathons, and student leadership initiatives.
