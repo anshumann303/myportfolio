@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronLeft, Circle, Square,
@@ -46,6 +46,170 @@ const PlayGames = () => {
   const [activeApp, setActiveApp] = useState<AppType>('home');
   const [time, setTime] = useState(new Date());
   const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('tablet');
+
+  // Audio Player State for Spotify
+  const [playingTrackId, setPlayingTrackId] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(30);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const SPOTIFY_TRACKS = [
+    {
+      "id": "6zvqq50PL7io0rprbkrYc9",
+      "title": "Afterthought",
+      "artist": "Joji, BENEE",
+      "img": "https://i.scdn.co/image/ab67616d0000485153f6fa0d2589c6a7174f4b81",
+      "previewUrl": "https://p.scdn.co/mp3-preview/99883d9095180e6910e031a93afad2b0251601b3"
+    },
+    {
+      "id": "0up9rhm9qt2LW7cnoDFCMk",
+      "title": "Jiyein Kyun",
+      "artist": "Pritam, Papon",
+      "img": "https://i.scdn.co/image/ab67616d00004851e39388ba8eadf58476135087",
+      "previewUrl": "https://p.scdn.co/mp3-preview/eef1f98c9e592bc4734eb4a670c2c3d343ac2297"
+    },
+    {
+      "id": "5PvwPy5eRO8BPwpRzCHK3D",
+      "title": "Sunn Raha Hai",
+      "artist": "Ankit Tiwari, Sandeep Nath",
+      "img": "https://i.scdn.co/image/ab67616d000048516404721c1943d5069f0805f3",
+      "previewUrl": "https://p.scdn.co/mp3-preview/66bea517c537e37b3aa162213583403583551f08"
+    },
+    {
+      "id": "2qgXrzJsry4KgYoJCpuaul",
+      "title": "Choo Lo",
+      "artist": "The Local Train",
+      "img": "https://i.scdn.co/image/ab67616d0000485158ecb3e5ec3bbef70ee09e43",
+      "previewUrl": "https://p.scdn.co/mp3-preview/c5d4e05e621bcdbd437dd7db50c5b318934b0851"
+    },
+    {
+      "id": "3beYHVCFKzbdNjJqjKeYpM",
+      "title": "Teri Jhuki Nazar",
+      "artist": "Pritam, Shafqat Amanat Ali, Sayeed Quadri",
+      "img": "https://i.scdn.co/image/ab67616d00004851947e9127982f21bf5504e1f8",
+      "previewUrl": "https://p.scdn.co/mp3-preview/e0d8c727c8749d965d0f538fca9542fad0cfcedf"
+    },
+    {
+      "id": "4mBmsPcPa1Eu4LDTHq55Ab",
+      "title": "Hothon Se Chhu Lo Tum - From \"Prem Geet\"",
+      "artist": "Jagjit Singh",
+      "img": "https://i.scdn.co/image/ab67616d00004851b5eba194cd2f743be9a0f87b",
+      "previewUrl": "https://p.scdn.co/mp3-preview/b17e888a769c6e3f7e83ba08b8b4f59f2ca51dff"
+    },
+    {
+      "id": "7fpWJr5shT90KiCHXKHxch",
+      "title": "Phir Le Aya Dil - Reprise",
+      "artist": "Pritam, Arijit Singh, Sayeed Quadri",
+      "img": "https://i.scdn.co/image/ab67616d00004851352f44aed6f226c6ea28b961",
+      "previewUrl": "https://p.scdn.co/mp3-preview/1113ef2b2dda9d13535ed1eff6d65a45b1319a39"
+    },
+    {
+      "id": "05REArTDZQd59A9Y4XC0Aq",
+      "title": "Maine Khud Ko",
+      "artist": "Mustafa Zahid",
+      "img": "https://i.scdn.co/image/ab67616d0000485187b32c2a464cd54ec95d301e",
+      "previewUrl": "https://p.scdn.co/mp3-preview/8ccf32d79c76d1839f0bde0e1aa635dd6f74f26d"
+    },
+    {
+      "id": "4CGBTtlrjZj7ydpV52cgB4",
+      "title": "Maula Mere Maula",
+      "artist": "Roop Kumar Rathod, Sayeed Quadri",
+      "img": "https://i.scdn.co/image/ab67616d0000485106b537ea166d7b3f3050241c",
+      "previewUrl": "https://p.scdn.co/mp3-preview/e02058d9013a312097020304c6a09528b5022b99"
+    },
+    {
+      "id": "2vfL2OwTXZAsr2RIZF5OZF",
+      "title": "Aahatein (unplugged)",
+      "artist": "Samyak Prasana",
+      "img": "https://i.scdn.co/image/ab67616d00004851c93a24aefd130b3078f55edf",
+      "previewUrl": "https://p.scdn.co/mp3-preview/5413cec774f29c01feb986f9458e3448ff0f8905"
+    },
+    {
+      "id": "37QFYtNOmvmXrgesLTRhMq",
+      "title": "Iktara - Male Version",
+      "artist": "Amit Trivedi, Tochi Raina, Amitabh Bhattacharya, Raman Mahadevan",
+      "img": "https://i.scdn.co/image/ab67616d000048510de1e597e2a3c89222b57e01",
+      "previewUrl": "https://p.scdn.co/mp3-preview/c679064eb133800f95fdd74624e9c4f0fee1046a"
+    },
+    {
+      "id": "7Csa4PStpuYIfUqNMKQ4V8",
+      "title": "Barbaad (From \"Saiyaara\")",
+      "artist": "The Rish, Jubin Nautiyal",
+      "img": "https://i.scdn.co/image/ab67616d00004851148a06ae24e68c088d8d2954",
+      "previewUrl": "https://p.scdn.co/mp3-preview/a31ac401b9b09595128fd28810c84497f66a2ced"
+    },
+    {
+      "id": "3HH3xlISSAhadC8bu0UDdl",
+      "title": "Tu Jo Hain",
+      "artist": "Ankit Tiwari",
+      "img": "https://i.scdn.co/image/ab67616d00004851564497ef5f69672d14bf7950",
+      "previewUrl": "https://p.scdn.co/mp3-preview/74c2964938106ee3254c606a179968f404f0b8eb"
+    },
+    {
+      "id": "04J4SELey0LIRh0ckQunWV",
+      "title": "Bewajah - Coke Studio Season 8",
+      "artist": "Nabeel Shaukat Ali",
+      "img": "https://i.scdn.co/image/ab67616d000048514c39eb233a8087c233feeba1",
+      "previewUrl": "https://p.scdn.co/mp3-preview/7122026878d847fc07b8051a00f9e06ca3cef511"
+    },
+    {
+      "id": "2RlR63Usi29jZkQXE60l2e",
+      "title": "Teri Yaadein",
+      "artist": "Parwan Khan, Irfan Chaudhry",
+      "img": "https://i.scdn.co/image/ab67616d000048511c3d082ad214b0043dad70b3",
+      "previewUrl": ""
+    },
+    {
+      "id": "3anHs4ijBd3Iw0E0fBPwtH",
+      "title": "Kashish",
+      "artist": "Ashish Bhatia, Omkar Singh, Kashish Ratnani",
+      "img": "https://i.scdn.co/image/ab67616d0000485178a554c1a4571acbeb8d4cf0",
+      "previewUrl": "https://p.scdn.co/mp3-preview/8a3b521b8d986bf206faabb0f528ac72ef567984"
+    },
+    {
+      "id": "2kdLpMajZ2VoKEAv9nGsUz",
+      "title": "Kaahe Mose",
+      "artist": "Garvit - Priyansh, Garvit Soni, Priyansh Srivastava",
+      "img": "https://i.scdn.co/image/ab67616d000048511f2c1b67a525cb5b6ccbb7fd",
+      "previewUrl": "https://p.scdn.co/mp3-preview/0a9e04c2d2e2c1be5352231343752d99ba42f89e"
+    },
+    {
+      "id": "39eveFXanRyyYmFSkdNX0z",
+      "title": "Survivors",
+      "artist": "Passenger",
+      "img": "https://i.scdn.co/image/ab67616d00004851347bc69b7d29edc34789c5a4",
+      "previewUrl": "https://p.scdn.co/mp3-preview/f989f60a5717891590d23e968aa2c5e0662c695f"
+    }
+  ];
+
+  const handlePlayTrack = (trackId: string) => {
+    if (playingTrackId === trackId) {
+      if (isPlaying) {
+        audioRef.current?.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current?.play();
+        setIsPlaying(true);
+      }
+    } else {
+      setPlayingTrackId(trackId);
+      setIsPlaying(true);
+    }
+  };
+
+  useEffect(() => {
+    if (playingTrackId && audioRef.current) {
+      audioRef.current.play().catch(e => console.log('Audio play failed:', e));
+    }
+  }, [playingTrackId]);
+
+  useEffect(() => {
+    if (activeApp !== 'spotify' && isPlaying) {
+      audioRef.current?.pause();
+      setIsPlaying(false);
+    }
+  }, [activeApp, isPlaying]);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -488,17 +652,151 @@ const PlayGames = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="absolute top-0 left-0 right-0 bottom-16 sm:bottom-12 bg-black"
+                className="absolute top-0 left-0 right-0 bottom-16 sm:bottom-12 bg-[#121212] flex flex-col overflow-y-auto"
               >
-                <iframe 
-                  src="https://open.spotify.com/embed/playlist/3mCOEn9od5jc3suDHqhQB4?utm_source=generator&theme=0" 
-                  className="w-full h-full border-none pointer-events-auto"
-                  title="Spotify"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                {/* Hidden Audio Player */}
+                <audio
+                  ref={audioRef}
+                  src={SPOTIFY_TRACKS.find(t => t.id === playingTrackId)?.previewUrl || ''}
+                  onTimeUpdate={() => setCurrentTime(audioRef.current?.currentTime || 0)}
+                  onLoadedMetadata={() => setDuration(audioRef.current?.duration || 30)}
+                  onEnded={() => setIsPlaying(false)}
                 />
+
+                {/* Header */}
+                <div className="flex items-center gap-4 p-6 pb-4">
+                  <div className="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-xl">
+                    <img src="https://mosaic.scdn.co/300/ab67616d00001e0253f6fa0d2589c6a7174f4b81ab67616d00001e0258ecb3e5ec3bbef70ee09e43ab67616d00001e026404721c1943d5069f0805f3ab67616d00001e02e39388ba8eadf58476135087" alt="Playlist" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <p className="text-zinc-400 text-xs uppercase tracking-widest mb-1">Playlist</p>
+                    <h2 className="text-white text-2xl font-bold">space night.</h2>
+                    <p className="text-zinc-400 text-sm mt-1">Anshumann · 18 songs</p>
+                  </div>
+                </div>
+
+                {/* Play on Spotify / Global Controls */}
+                <div className="px-6 pb-4 flex items-center justify-between">
+                  <button
+                    onClick={() => handlePlayTrack(playingTrackId || SPOTIFY_TRACKS[0].id)}
+                    className="w-12 h-12 rounded-full bg-[#1DB954] hover:bg-[#1ed760] hover:scale-105 flex items-center justify-center transition-all shadow-xl shadow-emerald-900/20"
+                    aria-label={isPlaying ? 'Pause' : 'Play'}
+                  >
+                    {isPlaying ? (
+                      <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5 text-black ml-1" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    )}
+                  </button>
+                  <a
+                    href="https://open.spotify.com/playlist/3mCOEn9od5jc3suDHqhQB4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-xs font-bold transition-colors"
+                  >
+                    Open on Spotify
+                    <ExternalLink size={14} />
+                  </a>
+                </div>
+
+                {/* Track List */}
+                <div className="px-4 pb-24 space-y-1">
+                  {SPOTIFY_TRACKS.map((track, i) => {
+                    const isTrackPlaying = playingTrackId === track.id;
+                    return (
+                      <button
+                        key={track.id}
+                        onClick={() => handlePlayTrack(track.id)}
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors group ${
+                          isTrackPlaying ? 'bg-white/10' : 'hover:bg-white/5'
+                        }`}
+                      >
+                        <div className="w-4 flex justify-center flex-shrink-0">
+                          {isTrackPlaying && isPlaying ? (
+                            <div className="flex items-end gap-[2px] h-3">
+                              {[1, 2, 1.5, 2.5].map((h, idx) => (
+                                <span key={idx} className="w-[2px] bg-[#1DB954] rounded-full animate-pulse" style={{ height: `${h * 4}px`, animationDuration: `${0.5 + idx * 0.1}s` }} />
+                              ))}
+                            </div>
+                          ) : (
+                            <span className={`text-xs ${isTrackPlaying ? 'text-[#1DB954]' : 'text-zinc-500 group-hover:hidden'}`}>{i + 1}</span>
+                          )}
+                          {!isTrackPlaying && <span className="text-white text-xs hidden group-hover:block">▶</span>}
+                        </div>
+                        
+                        <img src={track.img} alt={track.title} className="w-10 h-10 rounded object-cover flex-shrink-0" />
+                        
+                        <div className="flex-1 min-w-0 text-left">
+                          <p className={`text-sm font-medium truncate ${isTrackPlaying ? 'text-[#1DB954]' : 'text-white'}`}>{track.title}</p>
+                          <p className="text-zinc-400 text-xs truncate">{track.artist}</p>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Sticky Mini Player at Bottom */}
+                {playingTrackId && (
+                  <div className="sticky bottom-0 left-0 right-0 bg-[#181818] border-t border-zinc-800 p-3 pb-4 shadow-2xl">
+                    <div className="flex items-center gap-3 mb-2">
+                      <img 
+                        src={SPOTIFY_TRACKS.find(t => t.id === playingTrackId)?.img} 
+                        alt="Now Playing" 
+                        className="w-10 h-10 rounded shadow object-cover" 
+                      />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-white text-xs font-bold truncate">{SPOTIFY_TRACKS.find(t => t.id === playingTrackId)?.title}</p>
+                        <p className="text-zinc-400 text-[10px] truncate">{SPOTIFY_TRACKS.find(t => t.id === playingTrackId)?.artist}</p>
+                      </div>
+                      <button
+                        onClick={() => handlePlayTrack(playingTrackId)}
+                        className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-all flex-shrink-0"
+                      >
+                        {isPlaying ? (
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                        ) : (
+                          <svg className="w-4 h-4 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        )}
+                      </button>
+                    </div>
+                    {/* Progress Line */}
+                    <div className="flex items-center gap-2 px-1">
+                      <span className="text-zinc-400 text-[9px] tabular-nums w-6 text-right">
+                        {Math.floor(currentTime / 60)}:{String(Math.floor(currentTime % 60)).padStart(2, '0')}
+                      </span>
+                      <div 
+                        className="flex-1 h-1.5 bg-zinc-800 rounded-full cursor-pointer group/bar relative"
+                        onClick={(e) => {
+                          const rect = e.currentTarget.getBoundingClientRect();
+                          const pct = (e.clientX - rect.left) / rect.width;
+                          const newTime = pct * duration;
+                          if (audioRef.current) audioRef.current.currentTime = newTime;
+                          setCurrentTime(newTime);
+                        }}
+                      >
+                        <div 
+                          className="absolute top-0 left-0 h-full bg-white group-hover/bar:bg-[#1DB954] rounded-full transition-colors"
+                          style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                        />
+                        <div 
+                          className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-white rounded-full shadow opacity-0 group-hover/bar:opacity-100 transition-opacity"
+                          style={{ left: `calc(${duration ? (currentTime / duration) * 100 : 0}% - 5px)` }}
+                        />
+                      </div>
+                      <span className="text-zinc-400 text-[9px] tabular-nums w-6">
+                        0:{String(Math.floor(duration)).padStart(2, '0')}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
               </motion.div>
             )}
+
 
           </AnimatePresence>
 
