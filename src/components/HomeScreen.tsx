@@ -7,6 +7,7 @@ import { CustomBanner } from './CustomBanner';
 
 export const HomeScreen = () => {
   const [photoOpen, setPhotoOpen] = useState(false);
+  const [bannerOpen, setBannerOpen] = useState(false);
   const spotifyContainerRef = useRef<HTMLDivElement>(null);
   const spotifyControllerRef = useRef<any>(null);
 
@@ -68,13 +69,13 @@ export const HomeScreen = () => {
 
   // Lock body scroll when lightbox is open
   useEffect(() => {
-    if (photoOpen) {
+    if (photoOpen || bannerOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
-  }, [photoOpen]);
+  }, [photoOpen, bannerOpen]);
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -87,24 +88,30 @@ export const HomeScreen = () => {
       <div className="relative w-full mb-12 sm:mb-14">
         {/* Banner Container */}
         <div className="relative w-full rounded-2xl overflow-hidden">
-          <CustomBanner />
-          
+          <button
+            onClick={() => setBannerOpen(true)}
+            aria-label="View banner"
+            className="block w-full cursor-zoom-in group"
+          >
+            <CustomBanner />
+          </button>
+
           {/* Buttons placed on top of CustomBanner */}
-          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2">
+          <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 flex items-center gap-2">
             <Link
               to="/playgames"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-500 text-black hover:bg-emerald-400 active:scale-95 transition-all shadow-md shadow-emerald-500/20 backdrop-blur-md"
             >
-              <Gamepad2 className="w-3.5 h-3.5" />
+              <Gamepad2 className="w-3.5 h-4.5" />
               Arcade
             </Link>
             <a
               href="https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-black hover:bg-zinc-100 active:scale-95 transition-all border border-white/20 shadow-md backdrop-blur-md"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-900/90 text-white hover:bg-zinc-800 active:scale-95 transition-all border border-zinc-600 shadow-md backdrop-blur-md"
             >
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-4.5" />
               Resume
             </a>
           </div>
@@ -164,6 +171,51 @@ export const HomeScreen = () => {
             <button
               onClick={() => setPhotoOpen(false)}
               aria-label="Close"
+              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors shadow-lg"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          <style>{`
+            @keyframes fcb-lb-bg  { from { opacity: 0 } to { opacity: 1 } }
+            @keyframes fcb-lb-pop { from { opacity: 0; transform: scale(0.7) } to { opacity: 1; transform: scale(1) } }
+          `}</style>
+        </div>
+      )}
+
+      {/* ── Banner Lightbox ── */}
+      {bannerOpen && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8"
+          style={{ animation: 'fcb-lb-bg 0.25s ease forwards' }}
+          onClick={() => setBannerOpen(false)}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/85 backdrop-blur-md" />
+
+          {/* Frame */}
+          <div
+            className="relative z-10 flex flex-col items-center gap-4 w-full max-w-3xl"
+            style={{ animation: 'fcb-lb-pop 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Glowing border */}
+            <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 shadow-2xl shadow-emerald-500/30 w-full">
+              <div className="rounded-[14px] overflow-hidden w-full">
+                <img
+                  src="/my-new-bg.jpg"
+                  alt="Anshuman Lawankar - Banner"
+                  className="w-full h-auto object-cover"
+                  draggable={false}
+                />
+              </div>
+            </div>
+
+            {/* Close button */}
+            <button
+              onClick={() => setBannerOpen(false)}
+              aria-label="Close banner"
               className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors shadow-lg"
             >
               <X className="w-4 h-4" />
@@ -238,25 +290,25 @@ export const HomeScreen = () => {
         {/* Bio */}
         <div className="text-sm sm:text-base text-zinc-400 leading-relaxed space-y-4 max-w-2xl">
           <p>
-            B.E. IT student at <span className="text-white font-semibold">Sipna COET, Amravati</span> specializing in the{' '}
+            Final-year IT student at <span className="text-white font-semibold">Sipna COET, Amravati</span> and full-stack developer specializing in the{' '}
             <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium mx-0.5">MERN</span>{' '}
             stack and{' '}
-            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium mx-0.5">Next.js</span>,
-            focused on <span className="text-white font-semibold">scalable backend architectures</span> and shipping things that{' '}
-            <span className="italic text-white">actually work</span> under pressure.
+            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-medium mx-0.5">AI Integration</span>.
+            I build scalable, AI-powered software that transforms complex ideas into{' '}
+            <span className="italic text-white">fast, reliable</span>and production-ready apps.
           </p>
           <p>
-            Passionate software developer with hands-on experience in <span className="text-white font-semibold">Agentic AI, LLM Integrations,</span> and building{' '}
-            <span className="text-white font-semibold">Production-ready apps</span>. I like digging into distributed systems and the kind of engineering where
-            you have to think about what happens when things <span className="italic text-white">go wrong</span>.
+            As an <span className="text-white font-semibold">Oracle Certified Generative AI Professional</span>, I have hands-on experience in{' '}
+            <span className="text-white font-semibold">GEN AI workflows, RAG pipelines,</span> and integrating LLMs into{' '}
+            <span className="text-white font-semibold">Production-ready apps</span>. I build softwares that scales from responsive frontends to robust backend systems while leveraging AI to create smarter user experiences.
           </p>
           <p>
-            When I learn something worth sharing, I{' '}
+            Beyond coding, I'm a tech content creator passionate about building developer communities. When I’m not coding, I’m{' '}
             <button
               onClick={() => scrollToSection('projects')}
               className="text-white font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-white transition-colors"
             >
-              write about it
+              probably hiking on mountains
             </button>.
           </p>
         </div>
@@ -288,7 +340,7 @@ export const HomeScreen = () => {
               className="flex flex-col text-left hover:opacity-80 transition-opacity group"
             >
               <span className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">3+</span>
-              <span className="text-[10px] text-zinc-500 leading-tight">Contest Participant</span>
+              <span className="text-[10px] text-zinc-500 leading-tight">Contest Participated</span>
             </a>
           </div>
 

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const floatingBadges = [
   "MERN",
   "AI/ML",
-  "React Native",
+  "React.js",
   "Node.js",
   "MongoDB",
   "MySQL",
@@ -16,21 +16,21 @@ const floatingBadges = [
 
 const HeroSection = () => {
   return (
-    <section 
+    <section
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/hero-banner.png')" }}
+      style={{ backgroundImage: "url('/my-new-bg.jpg')" }}
     >
       {/* Dark overlay for text readability against the banner */}
       <div className="absolute inset-0 bg-background/60 dark:bg-background/80 z-0" />
-      
+
       {/* Glowing Blob Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] opacity-50 pointer-events-none z-0" />
 
       <div className="section-padding container-narrow relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-        
+
         {/* Left Content */}
         <div className="text-center lg:text-left">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -48,18 +48,18 @@ const HeroSection = () => {
           >
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"/>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"/>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               Open to SDE Roles
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-zinc-300 text-xs font-medium">
               <Hammer className="w-3 h-3 text-amber-400" />
-              Building: ChefCognito | Exploring: Agentic AI
+              Building: ChefCognito | Exploring: GEN AI
             </div>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -68,7 +68,7 @@ const HeroSection = () => {
             Anshuman Lawankar
           </motion.h1>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -83,7 +83,7 @@ const HeroSection = () => {
             <span>Open Source Contributor</span>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -106,7 +106,7 @@ const HeroSection = () => {
             />
           </motion.div>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -115,7 +115,7 @@ const HeroSection = () => {
             Passionate software developer specializing in full-stack engineering, AI-driven systems, and scalable digital solutions.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -135,7 +135,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -147,7 +147,7 @@ const HeroSection = () => {
               { icon: Mail, href: "mailto:lawankaranshuman@gmail.com" },
               { icon: Code2, href: "https://leetcode.com/u/lawankaranshuman/" }
             ].map((social, i) => (
-              <a 
+              <a
                 key={i}
                 href={social.href}
                 target="_blank"
@@ -227,7 +227,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
