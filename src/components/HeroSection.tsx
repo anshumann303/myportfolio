@@ -125,7 +125,7 @@ const HeroSection = () => {
               <a href="#projects">View Projects</a>
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto border-border hover:bg-secondary" asChild>
-              <a href="https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1PlWCqyGu3i6vJj5k860gZiksWAKrrsI7/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <FileText className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>

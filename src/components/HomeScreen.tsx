@@ -97,7 +97,7 @@ export const HomeScreen = () => {
               Arcade
             </Link>
             <a
-              href="https://drive.google.com/file/d/1IYhVFHdNMeB25xJMHljxqLkslMNJ6Ouv/view?usp=sharing"
+              href="https://drive.google.com/file/d/1PlWCqyGu3i6vJj5k860gZiksWAKrrsI7/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-900/90 text-white hover:bg-zinc-800 active:scale-95 transition-all border border-zinc-600 shadow-md backdrop-blur-md"
